@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Astrobet — Прогнозы и стратегия</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet"/>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(to bottom, #f5f3ff, #fff);
+    }
+  </style>
+</head>
+<body class="text-gray-800">
+  <header class="bg-purple-100 shadow p-4 text-center">
+    <h1 class="text-2xl font-semibold">🔮 Astrobet.live</h1>
+    <p class="text-sm text-gray-600">Астрология + Аналитика = Преимущество</p>
+  </header>
+
+  <main class="p-4 max-w-5xl mx-auto">
+    <section class="mb-6">
+      <h2 class="text-xl font-semibold mb-2">📅 Прогнозы на сегодня</h2>
+      <div class="overflow-x-auto">
+        <table class="min-w-full border text-sm text-left">
+          <thead class="bg-purple-200">
+            <tr>
+              <th class="p-2 border">№</th>
+              <th class="p-2 border">Вид спорта</th>
+              <th class="p-2 border">Событие</th>
+              <th class="p-2 border">БК</th>
+              <th class="p-2 border">Коэф.</th>
+              <th class="p-2 border">AI %</th>
+              <th class="p-2 border">Value</th>
+              <th class="p-2 border">Время (MSK)</th>
+            </tr>
+          </thead>
+          <tbody id="forecast-body"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="mb-6">
+      <h2 class="text-xl font-semibold mb-2">📈 График роста банка</h2>
+      <canvas id="bankChart" class="bg-white rounded shadow p-4"></canvas>
+    </section>
+
+    <section class="mb-6">
+      <h2 class="text-xl font-semibold mb-2">📘 Стратегия</h2>
+      <p>Используем подход с value-ставками: коэффициент от 1.65, вероятность от 60%. Ставка — 2% от банка.</p>
+    </section>
+
+    <section class="mb-6">
+      <h2 class="text-xl font-semibold mb-2">💰 Архив прибыли</h2>
+      <ul class="list-disc pl-5 text-sm text-gray-700">
+        <li>20.06.2025 — +55 €</li>
+        <li>21.06.2025 — +150 €</li>
+      </ul>
+    </section>
+
+    <section class="mb-6">
+      <h2 class="text-xl font-semibold mb-2">📬 Подписка и бот</h2>
+      <p>Хочешь получать прогнозы первым? Подпишись через Telegram:</p>
+      <a href="https://t.me/AstrobetBot" class="inline-block bg-purple-500 text-white px-4 py-2 mt-2 rounded hover:bg-purple-600">Перейти в Telegram-бота</a>
+    </section>
+  </main>
+
+  <footer class="text-center text-xs text-gray-500 py-4 border-t">
+    © 2025 Astrobet.live — Астрология. Аналитика. Прибыль.
+  </footer>
+
+  <script>
+    const ctx = document.getElementById('bankChart').getContext('2d');
+    const chart = new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: ['20.06', '21.06'],
+        datasets: [{
+          label: 'Банк (€)',
+          data: [5055, 5205],
+          borderColor: '#9333ea',
+          backgroundColor: 'rgba(147, 51, 234, 0.2)',
+          fill: true,
+          tension: 0.4
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: { legend: { display: false } },
+        scales: { y: { beginAtZero: false } }
+      }
+    });
+  </script>
+</body>
+</html>
